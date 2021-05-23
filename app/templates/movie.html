@@ -1,0 +1,51 @@
+{% extends "inc/base.html" %}
+
+{%- block title %}
+    {{ movie.title|e }}
+{% endblock title -%}
+
+{% block body %}
+    <section class="is-centered">
+        <img class="coverimg" src="/file/img/{{movie.cover_img}}.jpg" alt="">
+        <h1 class="title is-3">{{ movie.title|e }}</h1>
+        <div class="genere">
+            {%- for c in genre %}
+                <span>
+                    <figure class="image is-16x16">
+                        <img class="is-rounded" src="{{c.cover_img}}">
+                    </figure>
+                    <a href="/genere/{{ c.slug }}">
+                        <b>#{{ c.name }}</b>
+                    </a>
+                </span>
+            {% endfor -%}
+        </div>
+        <br>
+        <p>{{ movie.desc }}</p>
+
+    </section>
+        <!-- <img src="/file/img/{{movie.cover_img}}.jpg" alt=""><br> -->
+
+    <section>
+        <div style="margin:1rem;">
+            {% if seasons %}
+                {% for s in seasons %}
+                    <div class="columns has-text-centered is-multiline">
+                        <div class="column is-12" style="padding: 2px 1px;">
+                            <a href="{{ request.path ~ ('/s' if movie.is_series else '/p') ~ s.ses }}"><button type="button" class="button is-success" style="min-width: 250px;">
+                                {% if movie.is_series %}
+                                    Season {{ s.ses }} <small>( {{s.ep_count}} episodes)</small>
+                                {% else %}
+                                    Part {{ s.ses }} <small>( {{s.ep_count}} qualities)</small>
+                                {% endif %}
+                            
+                            </button></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h3 class="title is-4 red">No Seasons/Parts found</h3>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

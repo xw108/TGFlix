@@ -1,0 +1,30 @@
+{% from 'inc/macros.html' import nav %}<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}The Page Title{% endblock %}</title>
+    <link rel="icon" type="image/png"href="{{ url_for('static', path='/img/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/bulma.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+</head>
+<body>
+    {{ nav(2) }}
+    <div class="container p-0">
+{% block body %}
+{% endblock -%}
+</div>
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <a href="{{ appc.APP_URL }}"> <strong>{{ appc.APP_NAME }}</strong> </a>. {{ appc.APP_DESC }}
+      <br> The website content
+      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+<script src="{{ url_for('static', path='/js/script.js') }}"></script>
+</body>
+</html>

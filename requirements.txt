@@ -1,0 +1,11 @@
+aiofiles
+asyncpg
+black
+databases
+fastapi
+Jinja2
+pydantic
+python-dotenv
+SQLAlchemy
+Telethon
+uvicorn

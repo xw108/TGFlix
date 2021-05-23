@@ -1,0 +1,40 @@
+/* .genere.columns{
+    width: fit-content;
+} */
+/* .genere.column{
+    width: max-content;
+    min-width: max-content;
+} */
+.genere a{
+    position: absolute;
+    margin-top: -25px;
+    /* float: right; */
+    margin-left: 20px;
+}
+.genere a p{
+    min-width: max-content;
+}
+.coverimg{
+    display: block;
+    max-width: 700px;
+    margin: 10px auto;
+}
+
+.no-of-2l{
+    display: -webkit-box;
+    margin: 0 auto;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    height: 42px;
+}
+.no-of{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.page-title{
+    margin: 1em 1em;
+}

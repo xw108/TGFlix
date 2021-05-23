@@ -1,0 +1,15 @@
+{% extends "inc/base.html" %}
+
+{%- block title %}
+About US
+{% endblock title -%}
+
+{% block body %}
+<br>
+<div class="has-text-centered">
+
+    <h1 class="title is-4 mb-0 mt-5">About US</h3>
+</div>
+<h5 class="title is-2 mt-1"> {{ appc.APP_NAME|e }}</h5>
+<p>{{ appc.APP_DESC|e }}</p>
+{% endblock %}

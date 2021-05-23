@@ -1,0 +1,64 @@
+{% macro nav(current = 1) %}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <b>{{appc.APP_NAME}}</b>
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">  
+        <a class="navbar-item" href="/movie">
+          Movies
+        </a>
+        <a class="navbar-item" href="/series">
+          Series
+        </a>
+        <a class="navbar-item" href="/genere">
+          Generes
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More
+          </a>
+  
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/about">
+              About
+            </a>
+            <a class="navbar-item" href="/contact">
+              Contact
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <form action="/search">
+          <div class="field has-addons" style="width: 100%;">
+            <div class="control" style="width: 100%;">
+              <input class="input" type="text" name="m" placeholder="eg. peaky blinders" style="min-width: 300px;" minlength="3" required="">
+            </div>
+            <div class="control">
+              <button class="button is-success">Find</button>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+{% endmacro %}
+
+{% from 'inc/mitem.html' import MItem %}

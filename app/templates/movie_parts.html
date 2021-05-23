@@ -1,0 +1,30 @@
+{% extends "inc/base.html" %}
+
+{%- block title %}
+    {{ title }}
+{% endblock title -%}
+
+{% block body %}
+    <section>
+        <br>
+        <h1 class="title is-5">You are about to download "{{ title }}"</h1>
+        <br>
+        {% if not dwld %}
+            <h3 class="subtitle is-6 has-text-danger">Download is temporarily disable.Check again after some time</h3>
+        {% endif %}
+        {%- if res %}
+            {% for f in res %}
+            <div class="columns has-text-centered is-multiline">
+                <div class="column is-12" style="padding: 2px 1px;">
+                    <a href="{% if dwld %}/file/d/{{f.slug}}{% endif %}"><button type="button" class="button is-success" {% if not dwld %}disabled{% endif %} style="min-width: 300px;">
+                        Download {% if f.size %}{{ f.size }}{% else %}<small>Unkonwn mb</small>{% endif %}
+                        <small>{% if f.qlty %}( {{f.qlty}} ){% endif %}</small></button></a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <h3 class="title is-4 red">No files found</h3>
+        {% endif -%}
+        <br>
+    </section>
+{% endblock %}

@@ -1,0 +1,47 @@
+{
+    "name": "TGFlix",
+    "description": "A simple telegram indexer for movie channel",
+    "repository": "https://github.com/xw108/TGFlix",
+    "logo": "https://github.com/xw108/TGFlix/raw/v1/app/static/img/icon.png",
+    "keywords": ["tgflix", "telethon", "fastapi","telegram","telegram-bot","tg indexer","xw108"],
+    "env": {
+      "TG_APP_ID": {
+        "description": "Telegram api_id obtained from <https://my.telegram.org/apps>."
+      },
+      "TG_APP_HASH": {
+        "description": "Telegram api_hash obtained from <https://my.telegram.org/apps>."
+      },
+      "SESSION_STRING": {
+        "description": "Can be obtained by running `$ python3 scripts/gen_sess_string.py"
+      },
+      "DATABASE_URL": {
+        "description": "Postgres database url."
+      },
+      "APP_NAME": {
+        "description": "Name of your app",
+        "value": "My Movie Blog"
+      },
+      "APP_DESC": {
+        "description": "Description for your app"
+      },
+      "APP_URL": {
+        "description": "public url of your app.",
+        "value": "https://tgflix.herokuapp.com"
+      },
+      "ADMIN_UID": {
+        "description": "Userid of admin user.Can be obtained from msg details."
+      },
+      "MAX_ITEMS_PER_PAGE": {
+        "description": "Number of results to be shown per page (default 20).",
+        "value": 20
+      },
+      "DOWNLOAD_ENABLED": {
+        "description": "Disable or Enable download (default True).",
+        "value": true
+      },
+      "MAX_SIMULTANIOUS_DOWNLOAD": {
+        "description": "Number of parallel downloads allowed (default 20).",
+        "value": 20
+      }
+    }
+  }

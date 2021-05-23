@@ -1,0 +1,14 @@
+{% extends "inc/base.html" %}
+
+{%- block title %}
+Error {{ code }}
+{% endblock title -%}
+
+{% block body %}
+<br>
+<div class="has-text-centered">
+
+    <h1 class="title is-4 has-text-danger mb-0 mt-5">Error {{ code }}</h3>
+    <h5 class="sub-title is-6 has-text-danger mt-1"> {{ m|e }}</h5>
+</div>
+{% endblock %}

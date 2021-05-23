@@ -1,0 +1,21 @@
+{% extends "inc/base.html" %}
+{% from 'inc/mitem.html' import MItem %}
+
+
+{% block title %}{{ APP_NAME }}{% endblock %}
+
+{% block body %}
+<section>
+    <a href="/movie">
+        <u><h4 class="title is-4 page-title">&nbsp;Movies&nbsp;</h4></u>
+    </a>
+    {{ MItem( movies) }}
+</section>
+<br>
+<section>
+    <a href="/series">
+        <u><h4 class="title is-4 page-title">&nbsp;Series&nbsp;</h4></u>
+    </a>
+    {{ MItem( series) }}
+</section>
+{% endblock %}

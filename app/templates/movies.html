@@ -1,0 +1,13 @@
+{% extends "inc/base.html" %}
+{% from 'inc/mitem.html' import MItem %}
+{% from 'inc/pager.html' import Pager %}
+
+{%- block title %}
+    {{ title }}
+{% endblock title -%}
+
+{% block body %}
+    <u><h4 class="title is-4  page-title">&nbsp;{{title}}&nbsp;</h4></u>
+    {{ MItem( movies) }}
+    {{ Pager( request, page, movies|length  == appc.MAX_ITEMS_PER_PAGE, prefix)}}
+{% endblock %}

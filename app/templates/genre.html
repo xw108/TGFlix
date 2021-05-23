@@ -1,0 +1,44 @@
+{% extends "inc/base.html" %}
+{% from 'inc/pager.html' import Pager %}
+
+{%- block title %}
+    {{ title }}
+{% endblock title -%}
+
+{% block body %}
+<section>
+    <u><h4 class="title is-4 page-title"">&nbsp;Generes&nbsp;</h4></u>
+    {% if cl %}
+        <div class="columns is-multiline">
+            {% for c in cl %}
+            <div class="column is-6-tablet is-4-desktop">
+                <a href="/genere/{{c.slug}}">
+                    <div class="box">
+                        <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                            <img src="{{c.cover_img}}" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content">
+                            <p>
+                                <strong>{{c.name}}</strong>
+                                <br>
+                                {{ (c.desc or '')[:50]}}
+                            </p>
+                            </div>
+                        </div>
+                        </article>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h3 class="subtitle is-6 has-text-danger">No Generes found</h3>
+    {% endif -%}
+    <br>
+    {{ Pager( request, page, cl)}}
+    {% endblock -%}
+</section>

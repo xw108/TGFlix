@@ -1,0 +1,59 @@
+{% extends "inc/base.html" %}
+
+{% set title = mov.title~' S'~cses %}
+
+{%- block title %}
+    {{ title }}
+{% endblock title -%}
+
+{% block body %}
+    <section class="is-centered">
+        <img class="coverimg" src="/file/img/{{mov.cover_img}}.jpg" alt="">
+        <h1 class="title is-3">{{ mov.title }}</h1>
+        <div class="genere">
+            {%- for c in ctg %}
+                <span>
+                    <figure class="image is-16x16">
+                        <img class="is-rounded" src="{{c.cover_img}}">
+                    </figure>
+                    <a href="/genere/{{ c.slug }}">
+                        <b>#{{ c.name }}</b>
+                    </a>
+                </span>
+            {% endfor -%}
+        </div>
+        <br>
+        <p>{{ mov.desc }}</p>
+
+    </section>
+    <br>
+    <section>
+        <u><h4 class="title is-5">Episodes</h4></u>
+        {% if eps %}
+            {% for ep in eps %}
+            <div class="columns has-text-centered is-multiline">
+                <div class="column is-12" style="padding: 2px 1px;">
+                    <a href="{{ request.path }}/e{{ ep.eps}}"><button type="button" class="button is-primary" style="min-width: 250px;">
+                        Episode {{ ep.eps }} <small>( {{ ep.res_count}} qualities)</small>
+                    </button></a>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <u> <h4 class="title is-5">Seasons</h4> </u>
+        {% if ses %}
+            {% for s in ses %}
+                <div class="columns has-text-centered is-multiline">
+                    <div class="column is-12" style="padding: 2px 1px;">
+                        <a href="{{ request.path[:-1] ~ s.ses }}"><button type="button" class="button is-success" style="min-width: 250px;">
+                                Season {{ s.ses }} ( {{s.ep_count}} episodes)
+                        </button></a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3>No seasons or episods found</h3>
+        {% endif %}
+    </section>
+{% endblock %}
